@@ -1,7 +1,24 @@
-<div class="pipes">
+<div class="container">
   <h2>Pipes</h2>
 
   <div>
-    <p>{{ title() | uppercase }}</p>
+    <p>Upper-case Pipe: {{ title() | uppercase }}</p>
+    <p>Title-case Pipe: {{ title() | titlecase }}</p>
+  </div>
+  <div>
+    <p>Currency Pipe: {{ currency() | currency: 'EUR' }}</p>
+    <p>Date Pipe 1: {{ date | date }}</p>
+    <p>Date Pipe MM: {{ date | date: 'MM' }}</p>
+    <p>Date Pipe dd: {{ date | date: 'dd' }}</p>
+    <p>Date Pipe yy: {{ date | date: 'yy' }}</p>
+    <p>Date Pipe short: {{ date | date: 'short' }}</p>
+    <p>Date Pipe full: {{ date | date: 'full' }}</p>
+  </div>
+  <div>
+    <p>JSON pipe: {{ user() | json }}</p>
+  </div>
+
+  <div>
+    <p>Custom Pipe: {{ customName() | addLastName:["Tomura", 24] }}</p>
   </div>
 </div>

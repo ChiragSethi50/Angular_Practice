@@ -1,10 +1,15 @@
 <!-- {{ }}: Interpolation braces -->
 <body>
-  <div style="display: flex; justify-content: space-between">
+  <div class="navebar" style="display: flex; justify-content: space-between">
     <h1>{{ title() }}</h1>
-    <a routerLink="/to-do-list">
-      <button class="btn">To Do List</button>
-    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <a routerLink="/">Home</a>
+      <a routerLink="/about">About</a>
+      <a routerLink="/profile">Profile</a>
+      <a routerLink="/to-do-list">
+        <button class="btn">To Do List</button>
+      </a>
+    </div>
   </div>
 
   <router-outlet> </router-outlet>

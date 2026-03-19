@@ -18,7 +18,6 @@ export class ToDoList {
     }
   }
   handleDelete(id: number) {
-    console.log(id, this.tasks);
     this.tasks = this.tasks.filter((t) => t.id !== id);
   }
 }
