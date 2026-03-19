@@ -1,0 +1,23 @@
+.counter {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    border-bottom: 1px solid #ececec;
+    border-top: 1px solid #ececec;
+}
+
+
+.bg-blue {
+    color: #fff;
+
+    background-color: lightblue;
+}
+
+.bg-beige {
+    color: brown;
+    background-color: beige;
+}
+.bg-green {
+    color: #fff;
+    background-color: aquamarine;
+}

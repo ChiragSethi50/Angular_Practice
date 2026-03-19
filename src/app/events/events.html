@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Handling events</h2>
+
+  <p>{{ eventType }}</p>
+
+  <button class="btn" (click)="handleEvent($event)">Click Me</button>
+
+  <div
+    style="height: 100px; width: 100px; background-color: greenyellow; margin: 10px auto"
+    (mouseenter)="handleEvent($event)"
+  ></div>
+  <div
+    style="height: 100px; width: 100px; background-color: aquamarine; margin: 10px auto"
+    (mouseleave)="handleEvent($event)"
+  ></div>
+  <input type="text" (focus)="handleInput($event)" />
+  <input type="text" (blur)="handleInput($event)" />
+  <input type="text" (input)="handleInput($event)" />
+
+
+  <p>{{ inputEvent }}</p>
+
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+  <button class="btn" (click)="toggle()">Toggle div</button>
+  @if (value) {
+    <div style="width: 100px; height: 100px; background-color: red; margin-bottom: 20px"></div>
+  } @else {
+    <div style="width: 100px; height: 100px; background-color: gold; margin-bottom: 20px"></div>
+  }
+
+  <div>
+    <button class="btn" (click)="handleColor(1)" style="background-color: red">Red</button>
+    <button class="btn" (click)="handleColor(2)" style="background-color: blue">Blue</button>
+    <button class="btn" (click)="handleColor(3)" style="background-color: green">Green</button>
+    <button class="btn" (click)="handleColor(4)">Black</button>
+
+    @if (color == 1) {
+      <div style="width: 100px; height: 100px; background-color: red; margin-bottom: 20px"></div>
+    } @else if (color == 2) {
+      <div style="width: 100px; height: 100px; background-color: blue; margin-bottom: 20px"></div>
+    } @else if (color == 3) {
+      <div style="width: 100px; height: 100px; background-color: green; margin-bottom: 20px"></div>
+    } @else {
+      <div style="width: 100px; height: 100px; background-color: black; margin-bottom: 20px"></div>
+    }
+  </div>
+  <hr style="border: 1px solid #ececec" />
+  <div style="margin-bottom: 10px">
+    <h2>Loop Example</h2>
+    @for (user of users; track user.id; let idx = $index) {
+      <div>
+        <span>{{ idx + 1 }}. </span>
+        <span>{{ user.name }} </span>
+        <span>{{ user.email }} </span>
+      </div>
+    }
+  </div>
+  <hr style="border: 1px solid #ececec" />
+  <div style="margin-bottom: 10px">
+    <h2>Contextual variables in For Loop</h2>
+    <div>
+      <p>There are many contextual variables in a for loop</p>
+      <span>$count, $index, $last, $first, $odd, $even, empty</span>
+      <p>Example</p>
+    </div>
+    @for (
+      user of users;
+      track user.id;
+      let idx = $index, c = $count, l = $last, f = $first, e = $even, o = $odd
+    ) {
+      <div>
+        <span
+          ><b>$index:</b> {{ idx }}; <b>$count:</b> {{ c }}; <b>$last:</b> {{ l }}; <b>$first:</b>
+          {{ f }}; <b>$even:</b> {{ e }}; <b>$odd:</b> {{ o }}</span
+        >
+      </div>
+    } @empty {
+      <p>empty response</p>
+    }
+  </div>
+</div>

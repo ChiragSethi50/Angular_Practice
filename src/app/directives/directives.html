@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Directives</h2>
+
+  <div>
+    <button class="btn" (click)="handleToggle()">Show/hide</button>
+    <span *ngIf="show; else elseBlock">hello!</span>
+    <ng-template #elseBlock>world!</ng-template>
+  </div>
+
+  <div>
+    <span [ngStyle]="{ color: bgColor }" *ngFor="let x of loop">
+      {{ x }}
+    </span>
+  </div>
+
+  <div>
+    <div>
+      <button (click)="handleChange('red')" class="btn" style="background-color: red">Red</button>
+      <button (click)="handleChange('green')" class="btn" style="background-color: green">
+        Green
+      </button>
+
+      <div [ngSwitch]="textColor">
+        <p *ngSwitchCase="'green'" [ngStyle]="{ color: textColor }">Green Text</p>
+        <p *ngSwitchCase="'red'" [ngStyle]="{ color: textColor }">Red Text</p>
+        <p *ngSwitchDefault>Default Text</p>
+      </div>
+    </div>
+  </div>
+</div>

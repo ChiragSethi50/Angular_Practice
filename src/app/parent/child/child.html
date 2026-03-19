@@ -1,0 +1,10 @@
+<div>
+  <p>Data passed in Child</p>
+  @for (name of data; track name) {
+    <p>
+      {{ name }} 
+      <span><button (click)="whichName(name)">select</button></span>
+      <span><button (click)="delete(name)">delete</button></span>
+    </p>
+  }
+</div>

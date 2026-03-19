@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+.btn {
+    min-width: 100px;
+    width: fit-content;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #fff;
+    background: #000;
+    cursor: pointer;
+    height: 40px;
+    margin: 16px;
+    border: 1px solid #0f0f0f;
+}
+
+.btn:hover {
+    border: 1px solid #fff;
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  border-bottom: 1px solid #ececec;
+}

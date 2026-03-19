@@ -1,0 +1,20 @@
+<div class="container" style="display: flex; align-items: center; flex-direction: column">
+  <h2>Parent to Child data Passing</h2>
+
+  <div>
+    <input type="text" placeholder="Enter Name" [(ngModel)]="newName" />
+    <span><button class="btn" (click)="addName(newName)">Add Name</button></span>
+  </div>
+
+  <div>
+    <p>Selected Name: {{ selectedName() }}</p>
+  </div>
+
+  <div style="width: 60%; border: 1px solid grey">
+    <app-child
+      [data]="data()"
+      (selectName)="selectName($event)"
+      (deleteName)="deleteName($event)"
+      />
+  </div>
+</div>

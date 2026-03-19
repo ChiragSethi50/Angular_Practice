@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Two way binding</h2>
+
+  <p>
+    Using ngModel: <span><input [(ngModel)]="name" type="text" placeholder="Enter name" /></span>
+  </p>
+
+  <p>{{ name }}</p>
+
+
+  <p>
+    Using functions and events: <span>
+        <input type="text" (input)="changeName($event)" placeholder="Enter Name">
+    </span>
+  </p>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>To Do List!</h1>
+
+  <div class="list">
+    <div>
+      <input type="text" placeholder="Enter Task" [(ngModel)]="task" />
+      <button class="btn" (click)="handleAdd(task)">Add Task</button>
+    </div>
+
+    @for (t of tasks; track t.id) {
+      <div style="display: flex; gap: 16px;">
+        <span>{{ $index + 1 }}</span>
+        <span>{{ t.task }}</span>
+        <span><button (click)="handleDelete(t.id)">delete</button></span>
+      </div>
+    }
+  </div>
+</div>

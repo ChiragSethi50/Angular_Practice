@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Signals</h2>
+
+  <div>
+    <p>
+      <span>
+        <button class="btn" (click)="handleNormalCount()">Increase Count</button>
+      </span>
+      Normal Count:
+      {{ x }}
+    </p>
+    <p>
+      <span>
+        <button class="btn" (click)="increaseCount()">Increase Count</button>
+      </span>
+      Signal Count: {{ count() }}
+      <span>
+        <button class="btn" (click)="resetCount()">Reset Count</button>
+      </span>
+    </p>
+    <p>
+        Computed Signal (Signal Count times 2): {{ dependent() }}
+    </p>
+  </div>
+</div>
