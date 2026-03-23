@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   templateUrl: './about.html',
 })
 export class About {
- 
+  constructor(public route: ActivatedRoute) {}
+
+  user = '';
+
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      this.user = params['user'];
+    });
+  }
 }

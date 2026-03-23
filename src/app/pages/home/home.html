@@ -1,0 +1,23 @@
+<div>
+  <div class="container">
+    <h2>Dynamic Routing</h2>
+    <div style="width: 10%">
+      <ol>
+        @for (user of users; track user.id) {
+          <li>
+            <a [routerLink]="['/user', user.id]">{{ user.name }}</a>
+          </li>
+        }
+      </ol>
+    </div>
+  </div>
+  <app-counter />
+  <app-events />
+  <app-control-flow />
+  <app-signals />
+  <app-two-way-binding />
+  <app-directives />
+  <app-parent />
+  <app-global-state-management />
+  <app-pipes />
+</div>

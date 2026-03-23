@@ -2,25 +2,27 @@
 <body>
   <div class="navebar" style="display: flex; justify-content: space-between">
     <h1>{{ title() }}</h1>
-    <div style="display: flex; gap: 10px; align-items: center;">
-      <a routerLink="/">Home</a>
-      <a routerLink="/about">About</a>
-      <a routerLink="/profile">Profile</a>
-      <a routerLink="/to-do-list">
-        <button class="btn">To Do List</button>
-      </a>
+    <div style="display: flex; gap: 16px; align-items: center">
+      <a
+        routerLink="/"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link"
+        >Home</a
+      >
+      <a routerLink="/about/{{ name }}" routerLinkActive="active-link" class="nav-link">About</a>
+      <a
+        routerLink="/profile"
+        routerLinkActive="active-link"
+        class="nav-link"
+        [queryParams]="{ id: 1, name: 'Ace', age: 21 }"
+        >Profile</a
+      >
+
+      <!-- Routing with Button -->
+      <button class="btn" (click)="redirectToList()">To Do List</button>
     </div>
   </div>
 
   <router-outlet> </router-outlet>
-
-  <app-counter />
-  <app-events />
-  <app-control-flow />
-  <app-signals />
-  <app-two-way-binding />
-  <app-directives />
-  <app-parent />
-  <app-global-state-management />
-  <app-pipes />
 </body>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Counter } from '../../store/counter';
+import { Counter } from '../../store/counter/counter';
 
 @Component({
   selector: 'app-control-count',

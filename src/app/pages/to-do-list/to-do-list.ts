@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-to-do-list',
@@ -10,6 +11,14 @@ import { FormsModule } from '@angular/forms';
 export class ToDoList {
   task = '';
   tasks: { id: number; task: string }[] = [];
+
+  constructor(public route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      this.tasks.push({ id: Math.ceil(Math.random() * 10000), task: params['defaultTask'] });
+    });
+  }
 
   handleAdd(task: string) {
     if (task) {
