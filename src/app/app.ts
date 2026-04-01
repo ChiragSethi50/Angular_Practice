@@ -10,7 +10,7 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 export class App {
   title = signal('Angular');
   name = 'Ace'; //using to pass as dynamic route
-  
+
   constructor(public router: Router) {}
 
   redirectToList() {

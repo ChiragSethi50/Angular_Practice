@@ -7,11 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './about.html',
 })
 export class About {
-  constructor(public route: ActivatedRoute) {}
+  constructor(public route: ActivatedRoute) {
+    console.log('123');
+  }
 
   user = '';
 
   ngOnInit() {
+    console.log('456');
     this.route.params.subscribe((params) => {
       this.user = params['user'];
     });

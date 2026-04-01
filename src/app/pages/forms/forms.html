@@ -1,0 +1,84 @@
+<div class="container">
+  <h1>Using Forms</h1>
+
+  <div>
+    <p>Forms are used to collect user data</p>
+
+    <p>There are two main types of forms in angular and one experimental form.</p>
+    <ul>
+      <li>Reactive forms: Provide better usage and validations (recommended)</li>
+      <li>Template-Driven forms: Used for only simple forms (not-recommended)</li>
+      <li>Signal forms -> Reactive forms + Signals (Experimental)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <h3>Basic Reactive Form</h3>
+  <input type="text" placeholder="enter email" [formControl]="email" />
+  <br />
+  <input type="password" placeholder="password" [formControl]="password" />
+  <br />
+  <button (click)="login()">Login</button>
+  <br />
+  <button (click)="resetFields()">Reset Fields</button>
+
+  <p>
+    <span> Email: {{ showEmail }} </span>
+    <br />
+    <span> Password: {{ showPassword }} </span>
+  </p>
+</div>
+
+<div class="container">
+  <h3>Form Grouped Reactive forms</h3>
+
+  <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()" method="post">
+    <input type="text" placeholder="enter name" formControlName="groupName" />
+    @if (groupName?.hasError('required') && groupName?.touched) {
+      <span class="error">Name is required!</span>
+    }
+    <br /><br />
+    <input type="text" placeholder="enter email" formControlName="groupEmail" />
+    @if (groupEmail?.hasError('required') && groupEmail?.touched) {
+      <span class="error">Email is required!</span>
+    }
+    @if (groupEmail?.errors?.['email'] && groupEmail?.touched) {
+      <span class="error">Email must be correct!</span>
+    }
+    <br /><br />
+    <input type="password" placeholder="password" formControlName="groupPassword" />
+    @if (groupPassword?.hasError('required') && groupPassword?.touched) {
+      <span class="error">Password is required!</span>
+    }
+    @if (groupPassword?.errors?.['minlength'] && groupPassword?.touched) {
+      <span class="error">Password must be 6 characters!</span>
+    }
+    <br /><br />
+    <button [disabled]="loginForm.invalid">Submit</button>
+    <button type="button" (click)="resetForm()">Reset Fields</button>
+  </form>
+</div>
+
+<div class="container">
+  <h3>Signal Form</h3>
+  <input type="text" placeholder="enter email" [formField]="loginSignalForm.signalEmail" />
+  @if (loginSignalForm.signalEmail().invalid() && loginSignalForm.signalEmail().touched()) {
+    <ul>
+      @for (error of loginSignalForm.signalEmail().errors(); track error) {
+        <li class="error">{{ error.message }}</li>
+      }
+    </ul>
+  }
+  <br />
+  <input type="password" placeholder="password" [formField]="loginSignalForm.signalPassword" />
+  @if (loginSignalForm.signalPassword().invalid() && loginSignalForm.signalEmail().touched()) {
+    <ul>
+      @for (error of loginSignalForm.signalPassword().errors(); track error) {
+        <li class="error">{{ error.message }}</li>
+      }
+    </ul>
+  }
+  <br />
+  <button [disabled]="loginSignalForm().invalid()" (click)="loginSignal()" >Login</button>
+</div>

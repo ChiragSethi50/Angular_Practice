@@ -1,10 +1,10 @@
 import { Component, signal, WritableSignal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { Users } from '../../store/users/users';
 
 @Component({
   selector: 'app-users',
-  imports: [],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './user.html',
 })
 export class User {
